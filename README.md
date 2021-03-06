@@ -1,3 +1,17 @@
+# Instructions
+
+To run the script which will take the data added to the db through the database seed and put it into the new data models you have to run this command
+
+```
+rake db:custom_seed
+```
+
+To start rails server you have to export env variable POSTGRES_PASSWORD before start
+
+```
+export POSTGRES_PASSWORD={{YOUR_VALUE}}
+```
+
 # Candidate Homework
 
 Thank you for your interest in working with Catalyst! This repo is a boilerplate Rails 5.2 application that is in need of some work. Below are two prompts for changes that are needed. We want to see how you approach these challenges. Completing this work should not take more than two or three hours.

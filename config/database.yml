@@ -24,7 +24,7 @@ development: &development
   <<: *default
   database: candidate_homework_development
   username: candidate_homework
-  password: postgres
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
   host: localhost
   port: 5432
 
