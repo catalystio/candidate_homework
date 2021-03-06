@@ -24,7 +24,7 @@ development: &development
   <<: *default
   database: candidate_homework_development
   username: candidate_homework
-  # password:
+  password: postgres
   host: localhost
   port: 5432
 
