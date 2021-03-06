@@ -1,7 +1,7 @@
 class Integration < ApplicationRecord
   has_many :connections, dependent: :destroy
 
-
+  # TODO: this comment need to be removed in a later commit where we will add db migration to remove config field
   # def connections
   #   config['connections'].map do |connection|
   #     auth = OpenStruct.new(connection['auth'])
