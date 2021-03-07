@@ -10,10 +10,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_135959) do
+ActiveRecord::Schema.define(version: 2021_03_07_080053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "auths", force: :cascade do |t|
+    t.string "username"
+    t.string "password"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "connections", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "auth_id"
+    t.bigint "integration_id"
+    t.index ["auth_id"], name: "index_connections_on_auth_id"
+    t.index ["integration_id"], name: "index_connections_on_integration_id"
+  end
+
+  create_table "field_mappings", force: :cascade do |t|
+    t.string "local_field"
+    t.string "external_field"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "connection_id"
+    t.index ["connection_id"], name: "index_field_mappings_on_connection_id"
+  end
 
   create_table "integrations", force: :cascade do |t|
     t.string "name"
@@ -22,4 +48,18 @@ ActiveRecord::Schema.define(version: 2021_02_24_135959) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "paths", force: :cascade do |t|
+    t.string "host"
+    t.string "database"
+    t.string "table"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "connection_id"
+    t.index ["connection_id"], name: "index_paths_on_connection_id"
+  end
+
+  add_foreign_key "connections", "auths"
+  add_foreign_key "connections", "integrations"
+  add_foreign_key "field_mappings", "connections"
+  add_foreign_key "paths", "connections"
 end
