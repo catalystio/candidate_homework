@@ -13,6 +13,7 @@ To get started, please fork this repo, and create a new branch with your name. W
 * run `rake db:create`
 * run `rake db:migrate`
 * run `rake db:seed`
+* run `rake db:seed:load SEED=custom_seed`
 
 ## Prompt 1 - Data model changes and migration
 
