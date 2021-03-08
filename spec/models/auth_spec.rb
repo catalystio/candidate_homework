@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Auth, type: :model do
   it 'is valid with valid username and valid password' do
-    auth = Auth.new(username: 'candidate_homework', password: 'postgres')
+    auth = build(:auth)
 
     expect(auth).to be_valid
   end
@@ -22,8 +22,8 @@ RSpec.describe Auth, type: :model do
   end
 
   it 'should validate uniqueness of username & password' do
-    Auth.create(username: 'candidate_homework', password: 'postgress')
-    new_auth = Auth.new(username: 'candidate_homework', password: 'postgress')
+    create(:auth)
+    new_auth = Auth.new(username: 'candidate_homework', password: 'postgres')
 
     expect(new_auth).to_not be_valid
     expect(new_auth.errors[:username]).to include('has already been taken')

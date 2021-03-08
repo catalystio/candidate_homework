@@ -2,12 +2,7 @@ require 'rails_helper'
 
 RSpec.describe FieldMapping, type: :model do
   it 'is valid with valid attributes' do
-    integration = Integration.create(name: 'integration 1')
-    auth = Auth.create(username: 'candidate_homework', password: 'postgres')
-    connection = Connection.create(integration_id: integration.id, auth_id: auth.id,
-                                   host: 'localhost', database: 'analytics', table: 'users')
-    field_mapping = FieldMapping.new(connection_id: connection.id, local_field: 'user_local_field_1',
-                                     external_field: 'user_external_field_1')
+    field_mapping = build(:field_mapping)
 
     expect(field_mapping).to be_valid
   end

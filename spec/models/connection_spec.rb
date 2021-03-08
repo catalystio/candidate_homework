@@ -2,10 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Connection, type: :model do
   it 'is valid with valid attributes' do
-    integration = Integration.create(name: 'integration 1')
-    auth = Auth.create(username: 'candidate_homework', password: 'postgres')
-    connection = Connection.new(integration_id: integration.id, auth_id: auth.id,
-                                host: 'localhost', database: 'analytics', table: 'users')
+    connection = build(:connection)
 
     expect(connection).to be_valid
   end
