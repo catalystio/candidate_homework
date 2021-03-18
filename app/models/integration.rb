@@ -1,4 +1,6 @@
 class Integration < ApplicationRecord
+  has_many :connections
+
   def connections
     config['connections'].map do |connection|
       auth = OpenStruct.new(connection['auth'])

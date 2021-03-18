@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_24_135959) do
+ActiveRecord::Schema.define(version: 2021_03_18_094339) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "connections", force: :cascade do |t|
+    t.jsonb "auth"
+    t.jsonb "path"
+    t.bigint "integration_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["integration_id"], name: "index_connections_on_integration_id"
+  end
 
   create_table "integrations", force: :cascade do |t|
     t.string "name"
@@ -22,4 +31,5 @@ ActiveRecord::Schema.define(version: 2021_02_24_135959) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "connections", "integrations"
 end
