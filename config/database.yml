@@ -22,9 +22,9 @@ default: &default
 
 development: &development
   <<: *default
-  database: candidate_homework_development
-  username: candidate_homework
-  # password:
+  database: ENV['DEV_DATABASE_NAME']
+  username: ENV['DEV_DB_USERNAME']
+  password: ENV['DEV_DB_PASSWORD']
   host: localhost
   port: 5432
 
