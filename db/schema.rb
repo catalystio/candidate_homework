@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_28_143727) do
+ActiveRecord::Schema.define(version: 2021_03_28_145042) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,15 @@ ActiveRecord::Schema.define(version: 2021_03_28_143727) do
     t.index ["path"], name: "index_connections_on_path"
   end
 
+  create_table "field_mappings", force: :cascade do |t|
+    t.string "local_field"
+    t.string "external_field"
+    t.bigint "connection_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["connection_id"], name: "index_field_mappings_on_connection_id"
+  end
+
   create_table "integrations", force: :cascade do |t|
     t.string "name"
     t.jsonb "config", default: {}, comment: "Arbitrary JSON that the FE will parse to generate layout data"
@@ -34,4 +43,5 @@ ActiveRecord::Schema.define(version: 2021_03_28_143727) do
   end
 
   add_foreign_key "connections", "integrations"
+  add_foreign_key "field_mappings", "connections"
 end
