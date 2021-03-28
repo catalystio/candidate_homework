@@ -11,7 +11,8 @@ module API
       end
       route_param :id do
         get do
-          integration = Integration.find(params[:id])
+          integration = Integration.includes(connections: :field_mappings)
+            .find(params[:id])
 
           present integration, with: API::Entities::Integration
         end
