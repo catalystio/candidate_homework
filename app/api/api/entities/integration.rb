@@ -12,8 +12,7 @@ module API
       private
 
       def joined_path
-        path = object.path
-        [path.host, path.database, path.table].join('.')
+        [object.host, object.database, object.table].join('.')
       end
     end
 
