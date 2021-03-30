@@ -2,6 +2,11 @@
 require 'rails_helper'
 
 RSpec.describe Connection, type: :model do
+  describe 'validations' do
+    it { should validate_presence_of(:path) }
+    it { should validate_presence_of(:auth) }
+  end
+
   context 'when connection does not have an associated integration record' do
     let!(:connection_without_integration) { FactoryBot.build(:connection) }
 

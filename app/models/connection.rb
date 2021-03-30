@@ -7,4 +7,6 @@ class Connection < ApplicationRecord
   # store
   store :auth, accessors: %i[username password], coder: JSON
   store :path, accessors: %i[host database table], coder: JSON
+
+  validates_presence_of :path, :auth
 end
