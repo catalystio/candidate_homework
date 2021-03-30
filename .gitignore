@@ -33,4 +33,4 @@
 logfile
 
 # Ignore auto generated files by RubyMine
-.idea/
+.idea/*
