@@ -2,6 +2,7 @@
 class Connection < ApplicationRecord
   # associations
   belongs_to :integration
+  has_many :field_mappings, dependent: :destroy
 
   # store
   store :auth, accessors: %i[username password], coder: JSON
