@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 require 'rails_helper'
-require 'rake'
 load File.join(Rails.root, 'Rakefile')
 
 describe 'back fill integrations data' do
@@ -31,7 +30,7 @@ describe 'back fill integrations data' do
           database: 'analytics',
           table: 'users'
         }
-                                               )
+      )
     end
 
     it 'should move config#fieldmappings to Integration#FieldMappings' do
@@ -41,7 +40,7 @@ describe 'back fill integrations data' do
       expect(integration.connections.first.field_mappings.first).to have_attributes(
         local_field: 'user_local_field_1',
         external_field: 'user_external_field_1'
-                                                                    )
+      )
     end
 
     it 'should move odd config#fieldmappings to Integration#FieldMappings' do
@@ -51,7 +50,7 @@ describe 'back fill integrations data' do
       expect(integration_with_odd_field_mappings.connections.first.field_mappings.last).to have_attributes(
         local_field: 'user_local_field_3',
         external_field: nil
-                                                                                           )
+      )
     end
   end
 end
