@@ -34,3 +34,4 @@ logfile
 
 # Ignore auto generated files by RubyMine
 .idea/*
+.idea/candidate_homework.iml
