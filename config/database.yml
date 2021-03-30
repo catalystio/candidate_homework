@@ -22,7 +22,7 @@ default: &default
 
 development: &development
   <<: *default
-  database: candidate_homework_development
+  database: candidate_homework_developments
   host: localhost
   port: 5432
 
