@@ -121,3 +121,7 @@ Additionally, you'll find a API spec at `spec/app/api/api/integrations_spec.rb` 
 ### Evaluation
 
 After running your database migration and data migration script, this API spec should still pass.
+
+This is how you can run the migration script
+
+`rake field_mappings:update`
