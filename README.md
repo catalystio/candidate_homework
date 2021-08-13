@@ -63,7 +63,13 @@ We'll say this model grew organically and required multiple connections to be st
 2. Write database migrations to add the new table or tables.
 3. Write a script that can take the data added to the db through the database seed and put it into the new data model you design.
 
-### Evaluation
+### Instructions to run script
+
+1. Go to project directory in terminal. 
+2. Run `rake migrate:field_mapping_data` before run this task ensure you have run all new added migrations.
+3. We can also add this script instructions in a new migration and then drop column from `integrations` table.
+
+### Process to run script
 
 To evaluate, we will run the same steps as the "Getting started" section above, and then apply your changes. After your changes are applied we will run the new database migration(s) and your script for data migration. Please include instructions for how to run your scripts.
 
@@ -121,3 +127,4 @@ Additionally, you'll find a API spec at `spec/app/api/api/integrations_spec.rb` 
 ### Evaluation
 
 After running your database migration and data migration script, this API spec should still pass.
+
