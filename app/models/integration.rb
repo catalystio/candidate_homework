@@ -1,3 +1,13 @@
+# == Schema Information
+#
+# Table name: integrations
+#
+#  id                                                                    :bigint           not null, primary key
+#  config(Arbitrary JSON that the FE will parse to generate layout data) :jsonb
+#  name                                                                  :string
+#  created_at                                                            :datetime         not null
+#  updated_at                                                            :datetime         not null
+#
 class Integration < ApplicationRecord
   def connections
     config['connections'].map do |connection|
