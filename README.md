@@ -13,6 +13,8 @@ To get started, please fork this repo, and create a new branch with your name. W
 * run `rake db:create`
 * run `rake db:migrate`
 * run `rake db:seed`
+  ### Migrate Old Data
+      run `rake rake migrate_old_field_mappings`
 
 ## Prompt 1 - Data model changes and migration
 
