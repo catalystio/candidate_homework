@@ -23,7 +23,7 @@ default: &default
 development: &development
   <<: *default
   database: candidate_homework_development
-  username: candidate_homework
+  username: hossameldeenhawary
   # password:
   host: localhost
   port: 5432
