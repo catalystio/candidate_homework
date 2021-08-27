@@ -25,6 +25,6 @@ class Connection < ApplicationRecord
   store :path, accessors: %i[host database table]
 
   def joined_path
-    path.values.join('.')
+    [host, database, table].join('.')
   end
 end
