@@ -18,8 +18,10 @@ ActiveRecord::Schema.define(version: 2021_08_27_001115) do
   create_table "connections", force: :cascade do |t|
     t.json "auth"
     t.json "path"
+    t.bigint "integration_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["integration_id"], name: "index_connections_on_integration_id"
   end
 
   create_table "field_mappings", force: :cascade do |t|
@@ -40,6 +42,7 @@ ActiveRecord::Schema.define(version: 2021_08_27_001115) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "connections", "integrations"
   add_foreign_key "field_mappings", "connections"
   add_foreign_key "field_mappings", "integrations"
 end
